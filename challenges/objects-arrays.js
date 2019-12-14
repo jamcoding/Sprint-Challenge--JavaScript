@@ -72,7 +72,6 @@ Once you have the new array created, sort the universities alphabetically and lo
 const universities = [];
 
 for(let i = 0; i < graduates.length; i++) {
-  graduates[i].university;
   universities.push(graduates[i].university);
   universities.sort();
 }
@@ -100,8 +99,8 @@ for(let i = 0; i < graduates.length; i++) {
     unisWithUni.push(graduates[i].university);
   }
 }
-console.log(unisWithUni);
 
+console.log(unisWithUni);
 
 // ==== ADVANCED Array Methods ====
 
@@ -150,7 +149,9 @@ The zoos are concerned about animals with a lower population count. Using filter
 */
 const lowPopulationAnimals = [];
 zooAnimals.filter(zooAnimals => {
-  lowPopulationAnimals.push(zooAnimals.population < 5);
+  if(zooAnimals.population < 5) {
+    lowPopulationAnimals.push(zooAnimals.animal_name);
+  }
 });
 console.log(lowPopulationAnimals);
 
@@ -159,10 +160,9 @@ console.log(lowPopulationAnimals);
 The zoos need to know their total animal population across the United States. Find the total population from all the zoos using the .reduce() method. Remember the reduce method takes two arguments: a callback (which itself takes two args), and an initial value for the count.
 
 */
-const populationTotal = 0;
-zooAnimals.reduce((total, population) => {
-  return total + population.population, 0
-});
+const populationTotal = zooAnimals.reduce((total, population) => {
+  return total += population.population;
+}, 0);
 console.log(populationTotal);
 
 
